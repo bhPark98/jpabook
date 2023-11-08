@@ -1,4 +1,4 @@
-package jpabook.ch06.model3;
+package jpabook.ch07.model4;
 
 import jakarta.persistence.*;
 
@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Item {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="DTYPE")
+public abstract class Item {
 
     @Id
     @GeneratedValue
